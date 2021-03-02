@@ -58,7 +58,7 @@ public class WelcomeMenu implements Menu {
 		super();
 	}
 
-	public WelcomeMenu(Menu loginMenu, Menu registrationMenu) {
+	public WelcomeMenu(Menu loginMenu, Menu registrationMenu, Menu depositMenu) {
 		super();
 		this.loginMenu = loginMenu;
 		this.registrationMenu = registrationMenu;

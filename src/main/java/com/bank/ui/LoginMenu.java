@@ -14,7 +14,7 @@ public class LoginMenu implements Menu {
 	private Scanner scan;
 	private Menu nextMenu;
 
-	Menu depositMenu = new DepositMenu();
+	private Menu depositMenu = new DepositMenu();
 
 	public AuthService getuserService() {
 		return authService;
@@ -55,8 +55,17 @@ public class LoginMenu implements Menu {
 			System.out.println("4. Log out");
 
 			String sel = scan.nextLine();
+			if("1".equals(sel)) {
+			System.out.println("Account Summary");
+			}
 			if ("2".equals(sel)) {
-				depositMenu.displayOptions();
+				nextMenu= depositMenu;
+			}
+			if("3".equals(sel)) {
+				System.out.println("Withdraw Money");
+			}
+			if("4".equals(sel)) {
+				
 			}
 
 		} catch (FileNotFoundException e) {
@@ -92,10 +101,14 @@ System.out.println("User not found");
 
 	}
 
-	public LoginMenu(Menu depositMenu) {
+	public LoginMenu(Menu depositMenu,AuthService authService) {
 		super();
 		this.depositMenu = depositMenu;
+		this.authService = authService;
 
+	}
+	public LoginMenu() {
+		super();
 	}
 
 }

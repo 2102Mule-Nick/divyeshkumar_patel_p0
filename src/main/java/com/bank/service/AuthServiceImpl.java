@@ -12,6 +12,7 @@ import com.bank.pojo.User;
 
 public class AuthServiceImpl implements AuthService {
 	private UserDao userDao;
+	private AccountInfoDao accountinfoDao;
 
 	public UserDao getUserDao() {
 		return userDao;
@@ -30,19 +31,18 @@ public class AuthServiceImpl implements AuthService {
 			}
 		} catch (UserNotFound e) {
 			return false;
-		}
-		catch(FileNotFoundException e){
+		} catch (FileNotFoundException e) {
 			return false;
 		}
 		return false;
 	}
 
 	@Override
-	public User authenticateUser(User user) throws InvalidPassword, UserNotFound,FileNotFoundException {
+	public User authenticateUser(User user) throws InvalidPassword, UserNotFound, FileNotFoundException {
 		// TODO Auto-generated method stub
 
 		User existingUser = userDao.getUserByUsername(user.getUsername());
-		if (existingUser!=null && existingUser.getPassword().equals(user.getPassword())) {
+		if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
 			return existingUser;
 
 		}
@@ -63,10 +63,17 @@ public class AuthServiceImpl implements AuthService {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public AccountInfo depositAmt(AccountInfo amt) throws InvalidPassword {
+	// @Override
+	//public AccountInfo depositAmt(AccountInfo info) throws InvalidPassword, UserNotFound {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		//accountinfoDao.enterInfo(info);
+	//	return info;
+
+//	}
+
+	//public AuthServiceImpl(AccountInfoDao info) {
+	//	super();
+	//	this.accountinfoDao = info;
+	//}
 
 }

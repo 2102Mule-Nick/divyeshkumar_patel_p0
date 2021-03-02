@@ -16,5 +16,5 @@ public interface AuthService {
 
 	public User registerUser(User user) throws UserNameTaken;
 	
-	public AccountInfo depositAmt(AccountInfo amt) throws InvalidPassword;
+	//public AccountInfo depositAmt(AccountInfo info) throws InvalidPassword,UserNotFound;
 }

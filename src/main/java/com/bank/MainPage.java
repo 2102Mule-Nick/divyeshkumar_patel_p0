@@ -23,12 +23,12 @@ public class MainPage {
 		AuthService authService = new AuthServiceImpl(userDao);
 
 		Menu register = new RegistrationMenu();
-
-		Menu login = new LoginMenu(authService);
-
-		Menu welcomeMenu = new WelcomeMenu(login, register);
 		Menu deposit = new DepositMenu();
+		Menu login = new LoginMenu(deposit,authService);
+		
 
+		Menu welcomeMenu = new WelcomeMenu(login, register,deposit);
+		
 		((RegistrationMenu) register).setWelcomeMenu(welcomeMenu);
 
 		((RegistrationMenu) register).setAuthService(authService);
